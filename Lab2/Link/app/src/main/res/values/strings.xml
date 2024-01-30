@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Link</string>
+    <string name="open_url">Click here</string>
+    <string name="enter_url">Enter text</string>
+</resources>
