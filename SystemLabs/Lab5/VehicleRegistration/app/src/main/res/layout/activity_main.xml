@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/VehicleType"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#D0D0D0"
+        android:popupBackground="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/Number"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="@string/vehicle_number"
+        android:inputType="text"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#D0D0D0" />
+
+    <EditText
+        android:id="@+id/RC"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="@string/rc_no"
+        android:inputType="text"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#D0D0D0" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/submit"
+        android:text="@string/submit"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#007BFF"
+        android:padding="12dp"
+        android:minWidth="120dp" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ring_Silent</string>
+    <string name="ringing">Ringing Mode</string>
+    <string name="silent">Silent Mode</string>
+    <string name="action">Action</string>
+    <string name="todo">todo</string>
+</resources>
