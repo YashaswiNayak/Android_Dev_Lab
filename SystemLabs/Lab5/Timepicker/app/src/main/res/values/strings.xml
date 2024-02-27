@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">TimePicker</string>
+    <string name="submit">Submit</string>
+    <string name="clear">Clear</string>
+    <string name="general">General</string>
+    <string name="tatkal">Tatkal</string>
+    <string-array name="source_array">
+        <item>New York</item>
+        <item>Los Angeles</item>
+        <item>Chicago</item>
+        <!-- Add more source locations if needed -->
+    </string-array>
+
+    <string-array name="destination_array">
+        <item>San Francisco</item>
+        <item>Miami</item>
+        <item>Seattle</item>
+        <!-- Add more destination locations if needed -->
+    </string-array>
+</resources>
