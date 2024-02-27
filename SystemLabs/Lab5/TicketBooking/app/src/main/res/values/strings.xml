@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TicketBooking</string>
+    <string name="to_fro">to-fro</string>
+    <string name="one_way">one-way</string>
+    <string name="submit">Submit</string>
+    <string name="clear">Clear</string>
+    <string name="source">Source</string>
+    <string name="destination">Destination</string>
+</resources>

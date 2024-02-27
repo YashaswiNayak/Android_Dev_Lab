@@ -26,19 +26,19 @@ class MainActivity : AppCompatActivity() {
             foodItems
         )
         listView.adapter=adapter
-//        listView.setOnItemClickListener { _, _, _, _ ->
-//            displayOrder()
+        listView.setOnItemClickListener { _, _, _, _ ->
+            displayOrder()
 //        }
         submit.setOnClickListener {
             displayOrder()
-//            if(!orderSubmitted){
-//
-//                disableListViewItems()
-//                orderSubmitted=true
-//            }
+            if(!orderSubmitted){
+
+                disableListViewItems()
+                orderSubmitted=true
+            }
         }
     }
-    private fun displayOrder(){
+    fun displayOrder(){
         val selectedItems= mutableListOf<String>()
         val adapter=listView.adapter as ArrayAdapter<*>
         for (i in 0 until adapter.count) {
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         orderDetails.append("\nTotal : $$totalCost")
         Toast.makeText(this, orderDetails.toString(), Toast.LENGTH_LONG).show()
     }
-    private fun getFoodCost(foodItem: String): Int {
+    fun getFoodCost(foodItem: String): Int {
         // You can customize the cost based on your menu
         return when (foodItem) {
             "Carrot: 40" -> 40
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             else -> 0
         }
     }
-    private fun disableListViewItems() {
+    fun disableListViewItems() {
         for (i in 0 until listView.childCount) {
             val view = listView.getChildAt(i)
             val checkBox = view.findViewById<CheckBox>(R.id.checkbox_food)
