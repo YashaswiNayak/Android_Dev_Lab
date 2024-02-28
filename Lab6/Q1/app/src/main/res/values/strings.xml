@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">XYZInstitute</string>
+    <string name="courses">Courses</string>
+    <string name="admission">Admission</string>
+    <string name="faculty">Faculty</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="homepage">Homepage</string>
+    <string name="about_us">About Us</string>
+</resources>

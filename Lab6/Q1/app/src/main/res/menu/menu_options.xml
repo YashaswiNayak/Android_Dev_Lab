@@ -1,0 +1,27 @@
+<!-- res/menu/menu_options.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_courses"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/courses" />
+    <item
+        android:id="@+id/nav_admission"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/admission" />
+    <item
+        android:id="@+id/nav_faculty"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/faculty" />
+    <item
+        android:id="@+id/nav_contact"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/contact_us" />
+    <item
+        android:id="@+id/nav_about"
+        android:icon="@drawable/th"
+        android:title="@string/about_us" />
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/homepage" />
+</menu>

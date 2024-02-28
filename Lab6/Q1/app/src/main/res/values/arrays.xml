@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string-array name="course_list">
+            <item>C-Programming</item>
+            <item>Data Structure</item>
+            <item>Database</item>
+            <item>Python</item>
+            <item>Java</item>
+            <item>Operating System</item>
+            <item>Compiler Design</item>
+            <item>Android Development</item>
+        </string-array>
+    <string-array name="faculty_list">
+        <item>Prof. John Doe</item>
+        <item>Dr. Jane Smith</item>
+        <item>Dr. Richard Roe</item>
+        <item>Prof. Mary Major</item>
+        <!-- Add more faculty items as needed -->
+    </string-array>
+    <string-array name="admission_procedure">
+        <item>Step 1: Fill out the online application form.</item>
+        <item>Step 2: Submit required documents.</item>
+        <item>Step 3: Attend the admission interview.</item>
+        <item>Step 4: Wait for the admission decision.</item>
+        <!-- Add more admission steps as needed -->
+    </string-array>
+    <string-array name="contact_us_list">
+        <item>Email: contact@xyzinstitute.com</item>
+        <item>Phone: +1 123 456 7890</item>
+        <item>Address: 123 XYZ Street, City, State, Country</item>
+        <!-- Add more contact items as needed -->
+    </string-array>
+    <string-array name="about_us_list">
+        <item>XYZ Institute is a leading educational institution dedicated to providing high-quality education in various fields.</item>
+        <item>Established in 1990, we have been offering a wide range of courses from basic to advanced levels.</item>
+        <item>Our faculty consists of experienced professionals and academicians who are passionate about teaching.</item>
+        <!-- Add more about us items as needed -->
+    </string-array>
+</resources>
