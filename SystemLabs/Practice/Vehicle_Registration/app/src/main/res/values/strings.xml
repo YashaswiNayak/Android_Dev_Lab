@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Vehicle_Registration</string>
+    <string name="enter_vehicle_no">Enter Vehicle No.</string>
+    <string name="enter_vehicle_rc">Enter Vehicle RC</string>
+    <string name="submit">Submit</string>
+    <string name="clear">Clear</string>
+    <string name="edit">Edit</string>
+    <string-array name="vehicles">
+        <item>Car</item>
+        <item>Bus</item>
+    </string-array>
+</resources>
