@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="places">
+        <item>America</item>
+        <item>China</item>
+        <item>India</item>
+        <item>North Korea</item>
+    </string-array>
+</resources>
