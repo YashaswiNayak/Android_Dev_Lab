@@ -1,7 +1,9 @@
 package com.example.q3
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ListView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+    private val reviewList= mutableListOf<Movie>()
     private lateinit var dbHelper: DBHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,26 +28,26 @@ class MainActivity : AppCompatActivity() {
         val movieName=findViewById<TextView>(R.id.movieName)
         val year=findViewById<TextView>(R.id.year)
         val review=findViewById<TextView>(R.id.review)
+        val listView=findViewById<ListView>(R.id.listView)
         saveButton.setOnClickListener {
             val movieItem=Movie(movieName.text.toString(),year.text.toString().toInt(),review.text.toString().toDouble())
             dbHelper.addMovie(movieItem)
         }
         viewButton.setOnClickListener {
             getMovie()
+            listView.adapter=ArrayAdapter(this,android.R.layout.simple_list_item_1,reviewList)
         }
     }
     private fun getMovie(){
         val db=dbHelper.readableDatabase
         val cursor=db.rawQuery("SELECT * FROM ${DBHelper.TABLE_NAME}",null)
-        val data=StringBuilder()
         while(cursor.moveToNext()){
-            val id=cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.ID))
             val name=cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.NAME))
             val year=cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.YEAR))
             val rating=cursor.getDouble(cursor.getColumnIndexOrThrow(DBHelper.RATING))
-            data.append("ID: $id,Name: $name,Year: $year,Rating: $rating\n")
+            val review=Movie(name,year,rating)
+            reviewList.add(review)
         }
-        findViewById<TextView>(R.id.display).text=data.toString()
         cursor.close()
         db.close()
 
