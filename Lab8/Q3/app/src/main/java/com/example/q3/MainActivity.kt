@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
-    private val reviewList= mutableListOf<Movie>()
+    private val reviewList= mutableListOf<String>()
     private lateinit var dbHelper: DBHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,12 +41,14 @@ class MainActivity : AppCompatActivity() {
     private fun getMovie(){
         val db=dbHelper.readableDatabase
         val cursor=db.rawQuery("SELECT * FROM ${DBHelper.TABLE_NAME}",null)
+        var data:String
         while(cursor.moveToNext()){
             val name=cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.NAME))
             val year=cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.YEAR))
             val rating=cursor.getDouble(cursor.getColumnIndexOrThrow(DBHelper.RATING))
             val review=Movie(name,year,rating)
-            reviewList.add(review)
+            data="Name: ${review.name}\nYear: ${review.year}\nRating: ${review.rating}\n"
+            reviewList.add(data)
         }
         cursor.close()
         db.close()

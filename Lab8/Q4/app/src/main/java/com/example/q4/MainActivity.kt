@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
-    private val studentList = mutableListOf<StudentDetails>()
+    private val studentList = mutableListOf<String>()
     private lateinit var dbHelper: DBHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
     private fun displayData() {
         val db = dbHelper.readableDatabase
         val cursor = db.rawQuery("SELECT * FROM ${DBHelper.TABLE_NAME}", null)
+        var data:String
         while (cursor.moveToNext()) {
             val name = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.NAME))
             val studentid = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.SEMESTER_ID))
@@ -54,8 +55,10 @@ class MainActivity : AppCompatActivity() {
             val branch = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.BRANCH))
             val faculty = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.FACULTY))
             val student = StudentDetails(name, studentid, semester, branch, faculty)
-            studentList.add(student)
+            data=("Name: ${student.name}\nStudent ID: ${student.studentid}\nSemester: ${student.semester}\nBranch: ${student.branch}\nFaculty: ${student.faculty}\n\n")
+            studentList.add(data)
         }
+
         cursor.close()
         db.close()
     }
