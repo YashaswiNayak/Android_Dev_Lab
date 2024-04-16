@@ -23,6 +23,7 @@ class DBHelper(context: Context,factory: CursorFactory?):SQLiteOpenHelper(contex
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         TODO("Not yet implemented")
+
     }
     fun insertData(student:StudentDetails){
         val db=writableDatabase

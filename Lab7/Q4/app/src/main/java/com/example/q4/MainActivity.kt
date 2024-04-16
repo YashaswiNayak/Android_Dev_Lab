@@ -1,14 +1,17 @@
 package com.example.q4
 
 import android.os.Bundle
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
+import android.view.View
+import android.widget.Button
+import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+    private val textContent: TextView by lazy {
+        findViewById(R.id.textContent)
+    }
     private val demonetizationContent: String by lazy {
         getString(R.string.demonetization_content)
     }
@@ -16,77 +19,83 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val filterSpinner = findViewById<Spinner>(R.id.filterSpinner)
-        val sortSpinner = findViewById<Spinner>(R.id.sortSpinner)
-        val textContent = findViewById<TextView>(R.id.textContent)
-        // Set up filter spinner
-        val filterOptions = resources.getStringArray(R.array.filter_options)
-        val filterAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, filterOptions)
-        filterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        filterSpinner.adapter = filterAdapter
+        val filterButton = findViewById<Button>(R.id.filterButton)
+        val sortButton = findViewById<Button>(R.id.sortButton)
 
-        filterSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: android.view.View?,
-                position: Int,
-                id: Long
-            ) {
-                // Handle filter selection
-                val selectedFilter = parent?.getItemAtPosition(position).toString()
-                val filteredContent = filterContent(selectedFilter)
-                textContent.text = filteredContent
-                Toast.makeText(this@MainActivity, "Filtered by: $selectedFilter", Toast.LENGTH_SHORT).show()
+        filterButton.setOnClickListener { showFilterMenu(filterButton) }
+        sortButton.setOnClickListener { showSortMenu(sortButton) }
+
+        textContent.text = demonetizationContent
+    }
+
+    private fun showFilterMenu(anchor: View) {
+        val popupMenu = PopupMenu(this, anchor)
+        popupMenu.menuInflater.inflate(R.menu.filter_menu, popupMenu.menu)
+
+        popupMenu.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.menu_keyword -> {
+                    textContent.text = filterContent("Keyword")
+                    showToast("Filtered by: Keyword")
+                }
+                R.id.menu_currency -> {
+                    textContent.text = filterContent("Currency")
+                    showToast("Filtered by: Currency")
+                }
+                R.id.menu_economy -> {
+                    textContent.text = filterContent("Economy")
+                    showToast("Filtered by: Economy")
+                }
             }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
+            true
         }
+        popupMenu.show()
+    }
 
-        // Set up sort spinner
-        val sortAdapter = ArrayAdapter.createFromResource(
-            this,
-            R.array.sort_options,
-            android.R.layout.simple_spinner_item
-        )
-        sortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        sortSpinner.adapter = sortAdapter
+    private fun showSortMenu(anchor: View) {
+        val popupMenu = PopupMenu(this, anchor)
+        popupMenu.menuInflater.inflate(R.menu.sort_menu, popupMenu.menu)
 
-        sortSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: android.view.View?,
-                position: Int,
-                id: Long
-            ) {
-                // Handle sort selection
-                val selectedSort = parent?.getItemAtPosition(position).toString()
-                val sortedContent = sortContent(selectedSort)
-                textContent.text = sortedContent
-                Toast.makeText(this@MainActivity, "Sorted by: $selectedSort", Toast.LENGTH_SHORT).show()
+        popupMenu.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.menu_sort_az -> {
+                    textContent.text = sortContent("Sort by A-Z")
+                    showToast("Sorted by: A-Z")
+                }
+                R.id.menu_sort_za -> {
+                    textContent.text = sortContent("Sort by Z-A")
+                    showToast("Sorted by: Z-A")
+                }
+                R.id.menu_original -> {
+                    textContent.text = demonetizationContent
+                    showToast("Original")
+                }
             }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
+            true
         }
+        popupMenu.show()
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun filterContent(filterOption: String): String {
         return when (filterOption) {
-            "Keyword" -> demonetizationContent // No need to filter if "Keyword" option is selected
+            "Keyword" -> demonetizationContent
             "Currency" -> {
-                // Filter content based on the "Currency" keyword
                 val filteredParts = demonetizationContent.split(" ").filter { word ->
                     word.contains("currency", ignoreCase = true)
                 }
                 filteredParts.joinToString(" ")
             }
             "Economy" -> {
-                // Filter content based on the "Economy" keyword
                 val filteredParts = demonetizationContent.split(" ").filter { word ->
                     word.contains("economy", ignoreCase = true)
                 }
                 filteredParts.joinToString(" ")
             }
-            else -> demonetizationContent // Default to displaying the original content
+            else -> demonetizationContent
         }
     }
 
@@ -94,7 +103,7 @@ class MainActivity : AppCompatActivity() {
         return when (sortOption) {
             "Sort by A-Z" -> demonetizationContent.split(" ").sorted().joinToString(" ")
             "Sort by Z-A" -> demonetizationContent.split(" ").sortedDescending().joinToString(" ")
-            "Original"->demonetizationContent
+            "Original" -> demonetizationContent
             else -> demonetizationContent
         }
     }

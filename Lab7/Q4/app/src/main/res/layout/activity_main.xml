@@ -12,24 +12,24 @@
         android:padding="16dp"
         android:text="@string/demonetization_content" />
 
-    <Spinner
-        android:id="@+id/filterSpinner"
+    <Button
+        android:id="@+id/filterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textContent"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:entries="@array/filter_options" />
+        android:text="Filter" />
 
-    <Spinner
-        android:id="@+id/sortSpinner"
+    <Button
+        android:id="@+id/sortButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/filterSpinner"
+        android:layout_below="@id/filterButton"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:entries="@array/sort_options" />
+        android:text="Sort" />
 
 </RelativeLayout>

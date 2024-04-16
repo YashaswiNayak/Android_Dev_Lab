@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_keyword"
+        android:title="Keyword" />
+    <item
+        android:id="@+id/menu_currency"
+        android:title="Currency" />
+    <item
+        android:id="@+id/menu_economy"
+        android:title="Economy" />
+</menu>

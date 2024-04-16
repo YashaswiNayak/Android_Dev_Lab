@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<EditText
+    android:layout_width="match_parent"
+    android:id="@+id/name"
+    android:hint="name"
+    android:layout_height="60dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/age"
+        android:hint="age"
+        android:layout_height="60dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/sub1"
+        android:hint="sub1"
+        android:layout_height="60dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/sub2"
+        android:hint="sub2"
+        android:layout_height="60dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/sub3"
+        android:hint="sub3"
+        android:layout_height="60dp"/>
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"/>
+    <Button
+        android:id="@+id/avg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Avg"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show"
+        android:id="@+id/show"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/averageDisplay"/>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"/>
+
+
+
+
+</LinearLayout>
